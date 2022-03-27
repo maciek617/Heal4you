@@ -12,13 +12,40 @@
   --primary: #ffece4;
   --btn: #ff9e9f;
   --blue: #0fbdff;
+  --creme: #ffbbbe;
 }
 
 button {
-  border: none;
-  outline: none;
+  background: var(--btn);
+  border-radius: 8px;
+  border: 0;
+  padding: 8px 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
 }
 
 a {
   text-decoration: none;
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid var(--btn);
+  background: transparent;
+}
+input,
+textarea {
+  border: 0;
+  border-bottom: 1px solid var(--btn);
+  padding: 10px;
+  outline: none;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 20px auto;
+  background-color: transparent;
 }
