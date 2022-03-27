@@ -22,6 +22,7 @@ const signup = async (email, password, displayName) => {
     isPending.value = false;
     error.value = null;
   } catch (e) {
+    //TODO: properly show to user
     error.value = e.message;
     isPending.value = false;
   }

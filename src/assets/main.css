@@ -13,6 +13,7 @@
   --btn: #ff9e9f;
   --blue: #0fbdff;
   --creme: #ffbbbe;
+  --warning: crimson;
 }
 
 button {
@@ -48,4 +49,10 @@ textarea {
   box-sizing: border-box;
   margin: 20px auto;
   background-color: transparent;
+}
+
+.error {
+  margin: 10px;
+  color: var(--warning);
+  text-align: center;
 }

@@ -9,6 +9,9 @@
     />
     <input type="email" placeholder="E-mail" required v-model="email" />
     <input type="password" placeholder="Password" required v-model="password" />
+    <div class="error" v-if="error">
+      <p>{{ error }}</p>
+    </div>
     <button v-if="!isPending">Sign Up</button>
     <button v-if="isPending" disabled>Loading...</button>
   </form>
@@ -34,7 +37,10 @@ export default {
 
     const handleSubmit = async () => {
       await signup(email.value, password.value, displayName.value);
-      router.push({ name: 'home' });
+
+      if (!error.value) {
+        router.push({ name: 'home' });
+      }
     };
 
     return { displayName, email, password, handleSubmit, error, isPending };
