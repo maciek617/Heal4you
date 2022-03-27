@@ -1,6 +1,6 @@
 <template>
   <h1>Signup Page</h1>
-  <form>
+  <form @submit.prevent="handleSubmit">
     <input
       type="text"
       placeholder="Display name"
@@ -9,7 +9,8 @@
     />
     <input type="email" placeholder="E-mail" required v-model="email" />
     <input type="password" placeholder="Password" required v-model="password" />
-    <button>Sign Up</button>
+    <button v-if="!isPending">Sign Up</button>
+    <button v-if="isPending" disabled>Loading...</button>
   </form>
   <div class="account_info">
     <p class="_info">
@@ -20,13 +21,23 @@
 </template>
 <script>
 import { ref } from '@vue/reactivity';
+import { useRouter } from 'vue-router';
+import useSignup from '../../composables/useSignup';
 export default {
   setup() {
+    const { signup, error, isPending } = useSignup();
     const displayName = ref('');
     const email = ref('');
     const password = ref('');
+    const router = useRouter();
+    console.log(router);
 
-    return { displayName, email, password };
+    const handleSubmit = async () => {
+      await signup(email.value, password.value, displayName.value);
+      router.push({ name: 'home' });
+    };
+
+    return { displayName, email, password, handleSubmit, error, isPending };
   },
 };
 </script>
