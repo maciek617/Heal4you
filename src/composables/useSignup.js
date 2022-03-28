@@ -22,8 +22,9 @@ const signup = async (email, password, displayName) => {
     isPending.value = false;
     error.value = null;
   } catch (e) {
-    //TODO: properly show to user
-    error.value = e.message;
+    const err = e.code.slice(5);
+    error.value =
+      err.charAt(0).toUpperCase() + err.slice(1).replaceAll('-', ' ');
     isPending.value = false;
   }
 };

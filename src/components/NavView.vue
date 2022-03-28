@@ -27,7 +27,6 @@ export default {
       await logout();
 
       if (!error.value) {
-        //TODO: find better way to check if user is sign in.
         user.value = null;
         router.push({ name: 'login' });
       }

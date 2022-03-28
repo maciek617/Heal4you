@@ -20,8 +20,8 @@ const login = async (email, password) => {
     error.value = null;
     isPending.value = false;
   } catch (e) {
-    //TODO: properly show to user
-    error.value = e.message;
+    const err = e.code.slice(5);
+    error.value = err.charAt(0).toUpperCase() + err.slice(1).replaceAll('-', ' ');
     isPending.value = false;
   }
 };

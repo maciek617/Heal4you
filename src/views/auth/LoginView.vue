@@ -25,14 +25,12 @@ export default {
     const { error, isPending, login } = useLogin();
     const email = ref('');
     const password = ref('');
-
     const router = useRouter();
 
     const handleSubmit = async () => {
       await login(email.value, password.value);
 
       if (!error.value) {
-        console.log('User logged in');
         router.push({ name: 'home' });
       }
     };
@@ -49,5 +47,8 @@ form {
 ._info {
   margin-top: 20px;
   text-align: center;
+}
+
+.wrapper {
 }
 </style>
