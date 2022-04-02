@@ -1,35 +1,43 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import HomeView from '../views/HomeView.vue';
+import { createRouter, createWebHistory } from "vue-router";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import HomeView from "../views/HomeView.vue";
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
+    path: "/",
+    name: "home",
     component: HomeView,
   },
   {
-    path: '/login',
-    name: 'login',
-    component: () => import('../views/auth/LoginView.vue'),
+    path: "/login",
+    name: "login",
+    component: () => import("../views/auth/LoginView.vue"),
   },
   {
-    path: '/signup',
-    name: 'signup',
-    component: () => import('../views/auth/SignupView.vue'),
+    path: "/signup",
+    name: "signup",
+    component: () => import("../views/auth/SignupView.vue"),
   },
   {
-    path: '/heal4you',
-    name: 'heal4you',
-    component: () => import('../views/AppView.vue'),
+    path: "/heal4you",
+    name: "heal4you",
+    component: () => import("../views/AppView.vue"),
     meta: {
       requiresAuth: true,
     },
   },
   {
-    path: '/heal4you/diet',
-    name: 'diet',
-    component: () => import('../views/diet/DietView.vue'),
+    path: "/heal4you/diet",
+    name: "diet",
+    component: () => import("../views/diet/DietView.vue"),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/heal4you/diet/:id",
+    name: "dietItem",
+    component: () => import("../views/diet/DietItem.vue"),
     meta: {
       requiresAuth: true,
     },
@@ -59,8 +67,8 @@ router.beforeEach(async (to, from, next) => {
     if (await getCurrentUser()) {
       next();
     } else {
-      alert('You have to be logged in to see te content.');
-      next('/login');
+      alert("You have to be logged in to see te content.");
+      next("/login");
     }
   } else {
     next();

@@ -40,6 +40,9 @@ form {
 }
 input,
 textarea {
+  max-height: 300px;
+  min-width: 280px;
+  max-width: 95%;
   border: 0;
   border-bottom: 1px solid var(--btn);
   padding: 10px;

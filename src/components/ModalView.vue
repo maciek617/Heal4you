@@ -1,36 +1,36 @@
 <template>
-  <div class="modal" v-if="open">
+  <div class="modal" v-if="isOpen">
     <h2 class="modal_h2">Add new diet</h2>
-    <div class="input_wrapper" @change="validateInputs">
+    <div class="input_wrapper">
       <input type="text" placeholder="Title..." v-model="title" />
       <textarea placeholder="Description..." v-model="description"></textarea>
     </div>
-    <button class="save_btn" @click="$emit(show ? 'closeModal' : '')">
-      Save
-    </button>
+    <button class="save_btn" @click="addData">Save</button>
     <button class="save_btn" @click="$emit('closeModal')">
       <i class="fa-solid fa-circle-xmark"></i>
     </button>
   </div>
 </template>
 <script>
-import { ref } from '@vue/reactivity';
+import { ref } from "vue";
+import useSet from "@/composables/setCollectionData";
 export default {
-  props: ['open'],
-  setup() {
-    const title = ref('');
-    const description = ref('');
-    const show = ref(false);
+  props: ["isOpen"],
+  setup(props, ctx) {
+    const { setData } = useSet();
+    const title = ref("");
+    const description = ref("");
 
-    const validateInputs = () => {
-      if (title.value.trim() !== '' && description.value.trim() !== '') {
-        show.value = true;
-      } else {
-        show.value = false;
+    const addData = async () => {
+      if (title.value.trim() !== "" && description.value.trim() !== "") {
+        await setData(title.value, description.value);
+        title.value = "";
+        description.value = "";
+        ctx.emit("closeModal");
       }
     };
 
-    return { title, description, validateInputs, show };
+    return { title, description, addData };
   },
 };
 </script>

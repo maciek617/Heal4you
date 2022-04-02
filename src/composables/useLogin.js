@@ -1,6 +1,6 @@
-import { ref } from 'vue';
-import { auth } from '../firebase/config';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { ref } from "vue";
+import { auth } from "../firebase/config";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const error = ref(null);
 const isPending = ref(false);
@@ -11,17 +11,17 @@ const login = async (email, password) => {
 
   try {
     const res = await signInWithEmailAndPassword(auth, email, password);
-    console.log(res);
 
     if (!res) {
-      throw new Error('Could not finish. Try again!');
+      throw new Error("Could not finish. Try again!");
     }
 
     error.value = null;
     isPending.value = false;
   } catch (e) {
     const err = e.code.slice(5);
-    error.value = err.charAt(0).toUpperCase() + err.slice(1).replaceAll('-', ' ');
+    error.value =
+      err.charAt(0).toUpperCase() + err.slice(1).replaceAll("-", " ");
     isPending.value = false;
   }
 };

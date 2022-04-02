@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Heal4You</h1>
+    <router-link to="/heal4you"><h1>Heal4You</h1></router-link>
     <nav>
       <div v-if="!user">
         <router-link to="/login">Login</router-link>
@@ -14,9 +14,9 @@
   </div>
 </template>
 <script>
-import getUser from '@/composables/getUser';
-import useLogout from '@/composables/useLogout';
-import { useRouter } from 'vue-router';
+import getUser from "@/composables/getUser";
+import useLogout from "@/composables/useLogout";
+import { useRouter } from "vue-router";
 
 export default {
   setup() {
@@ -29,7 +29,7 @@ export default {
 
       if (!error.value) {
         user.value = null;
-        router.push({ name: 'login' });
+        router.push({ name: "login" });
       }
     };
 

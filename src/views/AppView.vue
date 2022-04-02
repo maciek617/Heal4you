@@ -1,7 +1,7 @@
 <template>
   <div class="app_container">
     <div class="info_box first">
-      <h1>Healthy diet Check</h1>
+      <h1>Healthy diet</h1>
       <div class="first_layout">
         <div class="layout_info">
           <p>
@@ -9,7 +9,9 @@
             vero impedit in eaque tempora, necessitatibus expedita molestias.
             Cum, necessitatibus deserunt?
           </p>
-          <button>Checkout</button>
+          <router-link :to="{ name: 'diet' }">
+            <button>Checkout</button>
+          </router-link>
         </div>
         <img :src="require('../assets/health_8.svg')" alt="" />
       </div>
@@ -67,6 +69,7 @@ export default {};
   margin: 0 auto;
   text-align: center;
 }
+
 .first_layout {
   display: flex;
   justify-content: space-evenly;
@@ -78,6 +81,7 @@ export default {};
   justify-content: space-evenly;
   flex-direction: column;
 }
+
 .info_box img {
   min-width: 300px;
   max-width: 50vw;
@@ -105,10 +109,12 @@ export default {};
 .info_box {
   margin-top: 40px;
 }
+
 @media screen and (min-width: 600px) {
   .layout_info {
     max-width: 50%;
   }
+
   .first_layout,
   .second_layout {
     flex-direction: row;
@@ -126,6 +132,7 @@ export default {};
     top: 10%;
     left: 0;
   }
+
   .layout_info {
     align-items: flex-start;
   }
@@ -141,6 +148,7 @@ export default {};
     top: 100px;
     font-size: 2.8em;
   }
+
   .layout_info button {
     margin-top: 25px;
     width: 160px;
