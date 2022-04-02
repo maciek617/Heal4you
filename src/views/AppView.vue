@@ -1,7 +1,7 @@
 <template>
   <div class="app_container">
     <div class="info_box first">
-      <h1>Healthy diet</h1>
+      <h1>Healthy diet Check</h1>
       <div class="first_layout">
         <div class="layout_info">
           <p>
