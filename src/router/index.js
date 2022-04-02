@@ -26,6 +26,14 @@ const routes = [
       requiresAuth: true,
     },
   },
+  {
+    path: '/heal4you/diet',
+    name: 'diet',
+    component: () => import('../views/diet/DietView.vue'),
+    meta: {
+      requiresAuth: true,
+    },
+  },
 ];
 
 const router = createRouter({

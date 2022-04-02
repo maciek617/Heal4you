@@ -31,7 +31,7 @@ export default {
       await login(email.value, password.value);
 
       if (!error.value) {
-        router.push({ name: 'home' });
+        !error.value ? router.push({ name: 'heal4you' }) : null;
       }
     };
 

@@ -7,6 +7,7 @@
         <router-link :to="{ name: 'signup' }">Signup</router-link>
       </div>
       <div v-else>
+        <button class="blog">Blog</button>
         <button @click="handleLogout">Logout</button>
       </div>
     </nav>
@@ -58,5 +59,9 @@ nav a {
 
 nav a.router-link-active {
   color: red;
+}
+
+.blog {
+  margin-right: 14px;
 }
 </style>
