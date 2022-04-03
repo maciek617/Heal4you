@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <router-link to="/heal4you"><h1>Heal4You</h1></router-link>
+    <router-link :to="{ name: backToHome }"><h1>Heal4You</h1></router-link>
     <nav>
       <div v-if="!user">
         <router-link to="/login">Login</router-link>
@@ -17,6 +17,7 @@
 import getUser from "@/composables/getUser";
 import useLogout from "@/composables/useLogout";
 import { useRouter } from "vue-router";
+import { computed } from "vue";
 
 export default {
   setup() {
@@ -33,7 +34,11 @@ export default {
       }
     };
 
-    return { user, handleLogout, isPending };
+    const backToHome = computed(() => {
+      return user.value !== null ? "heal4you" : "home";
+    });
+
+    return { user, handleLogout, isPending, backToHome };
   },
 };
 </script>
@@ -50,6 +55,7 @@ export default {
 h1 {
   font-weight: 500;
   font-size: 1.8em;
+  color: black;
 }
 
 nav a {
@@ -58,7 +64,7 @@ nav a {
 }
 
 nav a.router-link-active {
-  color: red;
+  color: var(--blue);
 }
 
 .blog {

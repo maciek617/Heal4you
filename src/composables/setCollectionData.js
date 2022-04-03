@@ -5,6 +5,7 @@ const setData = async (title, desc) => {
   const docRef = await addDoc(collection(db, "diet"), {
     title: title,
     desc: desc,
+    createdAt: Date.now(),
   });
 
   if (!docRef) {

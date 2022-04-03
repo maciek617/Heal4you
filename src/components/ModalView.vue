@@ -1,14 +1,16 @@
 <template>
-  <div class="modal" v-if="isOpen">
-    <h2 class="modal_h2">Add new diet</h2>
-    <div class="input_wrapper">
-      <input type="text" placeholder="Title..." v-model="title" />
-      <textarea placeholder="Description..." v-model="description"></textarea>
+  <div class="modal_wrapper" v-if="isOpen">
+    <div class="modal">
+      <h2 class="modal_h2">Add new diet</h2>
+      <div class="input_wrapper">
+        <input type="text" placeholder="Title..." v-model="title" />
+        <textarea placeholder="Description..." v-model="description"></textarea>
+      </div>
+      <button class="save_btn" @click="addData">Save</button>
+      <button class="save_btn" @click="$emit('closeModal')">
+        <i class="fa-solid fa-circle-xmark"></i>
+      </button>
     </div>
-    <button class="save_btn" @click="addData">Save</button>
-    <button class="save_btn" @click="$emit('closeModal')">
-      <i class="fa-solid fa-circle-xmark"></i>
-    </button>
   </div>
 </template>
 <script>
@@ -53,5 +55,14 @@ export default {
 }
 .save_btn {
   margin-right: 12px;
+}
+.modal_wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 </style>

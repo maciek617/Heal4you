@@ -18,28 +18,29 @@
   <div class="account_info">
     <p class="_info">
       Do you have an account already?
-      <router-link :to="{ name: 'login' }">Login!</router-link>
+      <router-link :to="{ name: 'login' }" class="login_btn"
+        >Login!</router-link
+      >
     </p>
   </div>
 </template>
 <script>
-import { ref } from '@vue/reactivity';
-import { useRouter } from 'vue-router';
-import useSignup from '../../composables/useSignup';
+import { ref } from "@vue/reactivity";
+import { useRouter } from "vue-router";
+import useSignup from "../../composables/useSignup";
 export default {
   setup() {
     const { signup, error, isPending } = useSignup();
-    const displayName = ref('');
-    const email = ref('');
-    const password = ref('');
+    const displayName = ref("");
+    const email = ref("");
+    const password = ref("");
     const router = useRouter();
-    console.log(router);
 
     const handleSubmit = async () => {
       await signup(email.value, password.value, displayName.value);
 
       if (!error.value) {
-        router.push({ name: 'home' });
+        router.push({ name: "heal4you" });
       }
     };
 

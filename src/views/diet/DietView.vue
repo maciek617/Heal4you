@@ -55,7 +55,7 @@ export default {
 .diet {
   margin: 14px 8px;
   min-height: 180px;
-  min-width: 300px;
+  width: 320px;
   padding: 8px;
   border-radius: 14px;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);

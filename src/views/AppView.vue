@@ -5,54 +5,60 @@
       <div class="first_layout">
         <div class="layout_info">
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam
-            vero impedit in eaque tempora, necessitatibus expedita molestias.
-            Cum, necessitatibus deserunt?
+            Creating balance in your diet can make all the difference between
+            feeling like you're hopelessly counting calories and endlessly
+            scrolling for meal ideas.
           </p>
           <router-link :to="{ name: 'diet' }">
             <button>Checkout</button>
           </router-link>
         </div>
-        <img :src="require('../assets/health_8.svg')" alt="" />
+        <img
+          :src="require('../assets/health_8.svg')"
+          alt="healthy diet image"
+        />
       </div>
     </div>
     <div class="info_box second">
       <h1>Daily routines</h1>
       <div class="second_layout">
-        <img :src="require('../assets/health_5.svg')" alt="" />
+        <img :src="require('../assets/health_5.svg')" alt="tooth brush image" />
         <div class="layout_info">
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam
-            vero impedit in eaque tempora, necessitatibus expedita molestias.
-            Cum, necessitatibus deserunt?
+            Some days are better than others, but one thing we all have in
+            common is a daily routine. Here are some of the top routines in our
+            community, what do you think is most important?
           </p>
           <button>Checkout</button>
         </div>
       </div>
     </div>
     <div class="info_box first">
-      <h1>Home exercies</h1>
+      <h1>Home exercises</h1>
       <div class="first_layout">
         <div class="layout_info">
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam
-            vero impedit in eaque tempora, necessitatibus expedita molestias.
-            Cum, necessitatibus deserunt?
+            From pushups to squats, we’ve got the perfect exercises for your
+            living room. And if you’re up for being sentenced to community
+            service and walking laps around a track, there’s always Pilates!
           </p>
           <button>Checkout</button>
         </div>
-        <img :src="require('../assets/health_1.svg')" alt="" />
+        <img :src="require('../assets/health_1.svg')" alt="running man image" />
       </div>
     </div>
     <div class="info_box second">
       <h1>Doctors visit</h1>
       <div class="second_layout">
-        <img :src="require('../assets/health_9.svg')" alt="" />
+        <img
+          :src="require('../assets/health_9.svg')"
+          alt="doctor visit image"
+        />
         <div class="layout_info">
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam
-            vero impedit in eaque tempora, necessitatibus expedita molestias.
-            Cum, necessitatibus deserunt?
+            Doctors don't just heal us with amazing skills and knowledge.
+            Doctors are also the first ones to break stigma! We appreciate the
+            new allies we have because of you!
           </p>
           <button>Checkout</button>
         </div>
@@ -83,6 +89,7 @@ export default {};
 }
 
 .info_box img {
+  margin: 0 auto;
   min-width: 300px;
   max-width: 50vw;
 }
@@ -93,7 +100,7 @@ export default {};
 }
 
 .info_box p {
-  text-align: left;
+  text-align: center;
 }
 
 .layout_info {
@@ -135,6 +142,9 @@ export default {};
 
   .layout_info {
     align-items: flex-start;
+  }
+  .info_box p {
+    text-align: left;
   }
 }
 

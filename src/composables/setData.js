@@ -1,11 +1,10 @@
 import { db } from "@/firebase/config";
-
-import { collection, onSnapshot, query } from "firebase/firestore";
+import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 import { ref } from "@vue/reactivity";
 import { watchEffect } from "vue";
 
 const getCollection = (col) => {
-  const q = query(collection(db, col));
+  const q = query(collection(db, col), orderBy("createdAt", "desc"));
   const documents = ref(null);
 
   const unsubscribe = onSnapshot(q, (querySnapshot) => {

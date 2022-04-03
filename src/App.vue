@@ -1,14 +1,20 @@
 <template>
-  <NavView />
-  <div class="content">
-    <router-view />
-  </div>
+  <header>
+    <NavView />
+  </header>
+  <main>
+    <div class="content">
+      <router-view />
+    </div>
+  </main>
+  <footer><FooterView /></footer>
 </template>
 
 <script>
-import NavView from './components/NavView.vue';
+import NavView from "./components/NavView.vue";
+import FooterView from "@/components/FooterView";
 export default {
-  components: { NavView },
+  components: { NavView, FooterView },
 };
 </script>
 
