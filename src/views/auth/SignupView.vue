@@ -38,10 +38,7 @@ export default {
 
     const handleSubmit = async () => {
       await signup(email.value, password.value, displayName.value);
-
-      if (!error.value) {
-        router.push({ name: "heal4you" });
-      }
+      !error.value ? await router.push({ name: "heal4you" }) : null;
     };
 
     return { displayName, email, password, handleSubmit, error, isPending };

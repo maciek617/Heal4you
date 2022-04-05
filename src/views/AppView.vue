@@ -16,13 +16,18 @@
         <img
           :src="require('../assets/health_8.svg')"
           alt="healthy diet image"
+          loading="lazy"
         />
       </div>
     </div>
     <div class="info_box second">
       <h1>Daily routines</h1>
       <div class="second_layout">
-        <img :src="require('../assets/health_5.svg')" alt="tooth brush image" />
+        <img
+          :src="require('../assets/health_5.svg')"
+          alt="tooth brush image"
+          loading="lazy"
+        />
         <div class="layout_info">
           <p>
             Some days are better than others, but one thing we all have in
@@ -44,7 +49,11 @@
           </p>
           <button>Checkout</button>
         </div>
-        <img :src="require('../assets/health_1.svg')" alt="running man image" />
+        <img
+          :src="require('../assets/health_1.svg')"
+          alt="running man image"
+          loading="lazy"
+        />
       </div>
     </div>
     <div class="info_box second">
@@ -53,6 +62,7 @@
         <img
           :src="require('../assets/health_9.svg')"
           alt="doctor visit image"
+          loading="lazy"
         />
         <div class="layout_info">
           <p>

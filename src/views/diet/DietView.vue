@@ -1,30 +1,31 @@
 <template>
-  <div class="create">
-    <button @click="open = true">
-      Create a new diet <i class="fa-solid fa-plus"></i>
-    </button>
-  </div>
-  <div class="dietList" v-if="documents != null">
-    <div class="diet" v-for="document in documents" :key="document.id">
-      <h1 class="diet_title">{{ document.title }}</h1>
-      <!-- TODO: if string > 30 char add else remove  -->
-      <p class="diet_description">
-        {{ document.desc.substring(0, 60) + "..." }}
-      </p>
-      <router-link :to="{ name: 'dietItem', params: { id: document.id } }">
-        <button class="diet_btn">See details</button>
-      </router-link>
+  <div class="diet_wrapper">
+    <div class="create">
+      <button @click="checkIfOpen">
+        Create a new diet <i class="fa-solid fa-plus"></i>
+      </button>
     </div>
+    <div class="dietList" v-if="documents != null">
+      <div class="diet" v-for="document in documents" :key="document.id">
+        <h1 class="diet_title">{{ document.title }}</h1>
+        <p class="diet_description">
+          {{ document.desc.substring(0, 60) + "..." }}
+        </p>
+        <router-link :to="{ name: 'dietItem', params: { id: document.id } }">
+          <button class="diet_btn">See details</button>
+        </router-link>
+      </div>
+    </div>
+    <div v-else class="no_diet">
+      <h1>
+        Sorry, we haven't prepared diets yet. If you know any good diets that
+        may help others. Click on "Create a new diet" and make it!
+      </h1>
+    </div>
+    <Teleport to="body">
+      <ModalView :isOpen="open" @closeModal="resetStyles" />
+    </Teleport>
   </div>
-  <div v-else class="no_diet">
-    <h1>
-      Sorry, we haven't prepared diets yet. If you know any good diets that may
-      help others. Click on "Create a new diet" and make it!
-    </h1>
-  </div>
-  <Teleport to="body">
-    <ModalView :isOpen="open" @closeModal="open = false" />
-  </Teleport>
 </template>
 <script>
 import { ref } from "vue";
@@ -37,7 +38,21 @@ export default {
     const { documents } = getCollection("diet");
     const open = ref(false);
 
-    return { open, documents };
+    const checkIfOpen = () => {
+      open.value = true;
+      if (open.value) {
+        document.body.classList.add("modal_active");
+      } else {
+        document.body.classList.remove("modal_active");
+      }
+    };
+
+    const resetStyles = () => {
+      open.value = false;
+      document.body.classList.remove("modal_active");
+    };
+
+    return { open, documents, checkIfOpen, resetStyles };
   },
 };
 </script>
@@ -81,5 +96,11 @@ export default {
 .no_diet {
   margin-top: 100px;
   text-align: center;
+}
+
+.modal_active {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
 }
 </style>

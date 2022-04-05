@@ -4,7 +4,9 @@
     <nav>
       <div v-if="!user">
         <router-link to="/login">Login</router-link>
-        <router-link :to="{ name: 'signup' }">Signup</router-link>
+        <router-link :to="{ name: 'signup' }" class="sign_btn"
+          >Signup</router-link
+        >
       </div>
       <div v-else>
         <button class="blog">Blog</button>
@@ -22,7 +24,7 @@ import { computed } from "vue";
 export default {
   setup() {
     const { user } = getUser();
-    const { error, isPending, logout } = useLogout();
+    const { error, logout } = useLogout();
     const router = useRouter();
 
     const handleLogout = async () => {
@@ -30,7 +32,7 @@ export default {
 
       if (!error.value) {
         user.value = null;
-        router.push({ name: "login" });
+        await router.push({ name: "login" });
       }
     };
 
@@ -38,7 +40,7 @@ export default {
       return user.value !== null ? "heal4you" : "home";
     });
 
-    return { user, handleLogout, isPending, backToHome };
+    return { user, handleLogout, backToHome };
   },
 };
 </script>
@@ -69,5 +71,11 @@ nav a.router-link-active {
 
 .blog {
   margin-right: 14px;
+}
+.sign_btn {
+  background-color: var(--btn);
+  padding: 4px 10px;
+  border-radius: 8px;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
 }
 </style>

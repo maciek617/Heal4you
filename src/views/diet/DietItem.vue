@@ -25,14 +25,14 @@ export default {
 
     const handleShowItem = async () => {
       const res = await getDocument("diet", route.params.id);
-      data.value = res;
+      data.value = await res;
     };
+
+    handleShowItem();
 
     const correctDisplayDate = computed(() => {
       return new Date(data.value.createdAt).toLocaleString();
     });
-
-    handleShowItem();
 
     const goBack = () => router.go(-1);
 

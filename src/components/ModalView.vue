@@ -4,12 +4,19 @@
       <h2 class="modal_h2">Add new diet</h2>
       <div class="input_wrapper">
         <input type="text" placeholder="Title..." v-model="title" />
-        <textarea placeholder="Description..." v-model="description"></textarea>
+        <textarea
+          placeholder="Description..."
+          v-model="description"
+          @keyup="charsCount"
+        ></textarea>
       </div>
       <button class="save_btn" @click="addData">Save</button>
       <button class="save_btn" @click="$emit('closeModal')">
         <i class="fa-solid fa-circle-xmark"></i>
       </button>
+      <div class="word_counter">
+        <p>Chars: {{ newText.length }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -22,17 +29,22 @@ export default {
     const { setData } = useSet();
     const title = ref("");
     const description = ref("");
+    const newText = ref("");
 
     const addData = async () => {
       if (title.value.trim() !== "" && description.value.trim() !== "") {
         await setData(title.value, description.value);
         title.value = "";
         description.value = "";
+        document.body.classList.remove("modal_active");
         ctx.emit("closeModal");
       }
     };
 
-    return { title, description, addData };
+    const charsCount = () => {
+      newText.value = description.value.split(/\s/).join("");
+    };
+    return { title, description, addData, charsCount, newText };
   },
 };
 </script>
@@ -57,12 +69,26 @@ export default {
   margin-right: 12px;
 }
 .modal_wrapper {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.word_counter {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+@media screen and (min-width: 1024px) {
+  .modal {
+    width: 500px;
+  }
 }
 </style>

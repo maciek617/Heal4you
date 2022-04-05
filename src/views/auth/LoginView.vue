@@ -25,16 +25,13 @@ import { useRouter } from "vue-router";
 export default {
   setup() {
     const { error, isPending, login } = useLogin();
+    const router = useRouter();
     const email = ref("");
     const password = ref("");
-    const router = useRouter();
 
     const handleSubmit = async () => {
       await login(email.value, password.value);
-
-      if (!error.value) {
-        !error.value ? router.push({ name: "heal4you" }) : null;
-      }
+      !error.value ? await router.push({ name: "heal4you" }) : null;
     };
 
     return { email, password, isPending, handleSubmit, error };
