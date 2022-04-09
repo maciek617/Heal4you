@@ -11,7 +11,7 @@ export default {
 <style scoped>
 p {
   font-weight: 300;
-  height: 20px;
   text-align: center;
+  line-height: 20px;
 }
 </style>

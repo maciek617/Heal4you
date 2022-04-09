@@ -22,7 +22,7 @@ export default {
 
 <style>
 .content {
-  min-height: 90vh;
+  min-height: 92vh;
   padding: 10px;
   background-color: var(--primary);
 }

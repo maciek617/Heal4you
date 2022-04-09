@@ -3,6 +3,7 @@
     <div class="modal">
       <h2 class="modal_h2">Add new diet</h2>
       <div class="input_wrapper">
+        <!--  TODO: input validation output errors      -->
         <input type="text" placeholder="Title..." v-model="title" />
         <textarea
           placeholder="Description..."
