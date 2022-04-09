@@ -6,7 +6,9 @@
         <p>
           Your health really is your wealth, and it’s why we’re there for you.
         </p>
-        <button class="discover">Discover</button>
+        <router-link :to="{ name: 'social' }">
+          <button class="discover">Discover</button>
+        </router-link>
       </div>
       <div class="hero_img">
         <img :src="require('../assets/health_10.svg')" alt="woman meditating" />
@@ -18,16 +20,18 @@
       <i class="fa-solid fa-chevron-down"></i>
     </span>
   </div>
-  <FaqView ref="main_content" />
+  <HomeCards ref="main_content" />
+  <FaqView />
 </template>
 
 <script>
 import FaqView from "@/components/FaqView";
+import HomeCards from "@/components/HomeCards";
 import { ref } from "@vue/reactivity";
 
 export default {
   name: "HomeView",
-  components: { FaqView },
+  components: { FaqView, HomeCards },
   setup() {
     const main_content = ref(null);
     const scrollToMain = () => {
@@ -43,6 +47,7 @@ export default {
 .home {
   min-height: 80vh;
 }
+
 .hero_text {
   display: flex;
   align-items: center;
@@ -56,10 +61,12 @@ export default {
   max-width: 400px;
   position: relative;
 }
+
 .hero_text_description p {
   max-width: 500px;
   font-size: clamp(1rem, 1.2vw, 1.2rem);
 }
+
 .hero_img {
   width: 100%;
   max-width: 550px;
@@ -68,6 +75,7 @@ export default {
 .bounce_btn {
   position: relative;
 }
+
 .bounce_btn span {
   z-index: 999;
   display: block;
@@ -85,6 +93,7 @@ export default {
 .bounce_btn span i {
   animation: bounce 2s infinite;
 }
+
 .discover {
   margin-top: 20px;
 }
@@ -93,6 +102,7 @@ export default {
   .hero_text_description {
     text-align: left;
   }
+
   .discover {
     position: absolute;
     left: 0;
@@ -104,6 +114,7 @@ export default {
   .hero_img {
     max-width: 750px;
   }
+
   .hero_text_description {
     max-width: 800px;
   }

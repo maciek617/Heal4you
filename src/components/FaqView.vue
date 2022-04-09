@@ -15,6 +15,12 @@
         </div>
       </div>
     </div>
+    <div class="start">
+      <h2>What are you waiting for?</h2>
+      <router-link :to="{ name: 'signup' }">
+        <button>START</button>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -113,5 +119,15 @@ h3 {
 
 .fa-plus {
   transition: transform 0.3s;
+}
+
+.start {
+  margin: 20px;
+}
+
+.start button {
+  margin-top: 8px;
+  width: 120px;
+  height: 40px;
 }
 </style>
