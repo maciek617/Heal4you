@@ -71,6 +71,14 @@ const routes = [
       requiresAuth: true,
     },
   },
+  {
+    path: "/heal4you/bmi",
+    name: "bmi",
+    component: () => import("../views/BmiView"),
+    meta: {
+      requiresAuth: true,
+    },
+  },
 ];
 
 const router = createRouter({

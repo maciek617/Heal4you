@@ -1,5 +1,5 @@
 <template>
-  <div class="diet_wrapper">
+  <div class="diet_wrapper" v-if="!isPending">
     <div class="create">
       <button @click="checkIfOpen">
         Create a new diet <i class="fa-solid fa-plus"></i>
@@ -26,6 +26,7 @@
       <ModalView :isOpen="open" @closeModal="resetStyles" />
     </Teleport>
   </div>
+  <div v-if="isPending">Loading...</div>
 </template>
 <script>
 import { ref } from "vue";
@@ -35,7 +36,7 @@ import getCollection from "@/composables/setData";
 export default {
   components: { ModalView },
   setup() {
-    const { documents } = getCollection("diet");
+    const { documents, isPending } = getCollection("diet");
     const open = ref(false);
 
     const checkIfOpen = () => {
@@ -52,7 +53,7 @@ export default {
       document.body.classList.remove("modal_active");
     };
 
-    return { open, documents, checkIfOpen, resetStyles };
+    return { open, documents, checkIfOpen, resetStyles, isPending };
   },
 };
 </script>

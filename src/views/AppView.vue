@@ -72,7 +72,9 @@
             Doctors are also the first ones to break stigma! We appreciate the
             new allies we have because of you!
           </p>
-          <button>Checkout</button>
+          <router-link :to="{ name: 'bmi' }">
+            <button>Checkout</button>
+          </router-link>
         </div>
       </div>
     </div>
