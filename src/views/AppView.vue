@@ -47,7 +47,9 @@
             living room. And if you’re up for being sentenced to community
             service and walking laps around a track, there’s always Pilates!
           </p>
-          <button>Checkout</button>
+          <router-link :to="{ name: 'exercises' }">
+            <button>Checkout</button>
+          </router-link>
         </div>
         <img
           :src="require('../assets/health_1.svg')"

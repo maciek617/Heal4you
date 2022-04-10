@@ -47,6 +47,30 @@ const routes = [
       requiresAuth: true,
     },
   },
+  {
+    path: "/heal4you/sports",
+    name: "exercises",
+    component: () => import("../views/exercises/ExercisesView"),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/heal4you/sports-group/:id",
+    name: "exercises_detail",
+    component: () => import("../views/exercises/ExercisesItem"),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/heal4you/sport/:id",
+    name: "sport",
+    component: () => import("../components/CurrentSportDetail"),
+    meta: {
+      requiresAuth: true,
+    },
+  },
 ];
 
 const router = createRouter({

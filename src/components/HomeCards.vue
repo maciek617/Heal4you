@@ -47,11 +47,12 @@ export default {
 
 <style scoped>
 .cards_wrapper {
-  margin-top: 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  max-width: 1200px;
+  margin: 40px auto;
 }
 
 .card {
