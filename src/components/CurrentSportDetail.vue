@@ -6,7 +6,9 @@
         <p v-if="currSport.attributes.description">
           {{ currSport.attributes.description }}
         </p>
-        <p v-else>No description data :(</p>
+        <p v-else class="error">
+          Sorry, API doesn't provide description for this sport :(
+        </p>
         <div
           class="image"
           v-if="currSport.relationships.images.data.length > 0"
@@ -18,14 +20,14 @@
           />
         </div>
         <div v-else>
-          <p>No image found</p>
+          <p class="error">
+            Sorry, API doesn't provide image for this sport :(
+          </p>
         </div>
       </div>
     </div>
-    <div v-if="isPending">
-      <h1 class="load">Loading...</h1>
-    </div>
-    <BackButton />
+    <LoadingAnimation v-if="isPending" />
+    <BackButton v-if="!isPending" />
   </div>
 </template>
 
@@ -33,10 +35,11 @@
 import { useRoute } from "vue-router";
 import BackButton from "@/components/BackButton";
 import useCurrSport from "@/composables/getCurrSport";
+import LoadingAnimation from "@/components/LoadingAnimation";
 
 export default {
   name: "CurrentSportDetail",
-  components: { BackButton },
+  components: { BackButton, LoadingAnimation },
   setup() {
     const route = useRoute();
     const { currSport, getCurrSport, isPending } = useCurrSport();
@@ -53,17 +56,24 @@ export default {
 </script>
 
 <style scoped>
+.sport_detail {
+  margin-top: 30px;
+}
+
 .image {
   margin: 50px auto;
-  max-width: 600px;
+  max-width: 400px;
 }
+
 .image img {
   width: 100%;
 }
+
 p {
   margin: 10px;
 }
-.load {
-  text-align: center;
+
+.error {
+  margin: 20px;
 }
 </style>

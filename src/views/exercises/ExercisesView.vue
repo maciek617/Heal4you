@@ -1,5 +1,5 @@
 <template>
-  <div class="exercises_wrapper">
+  <div class="exercises_wrapper" v-if="!isPending">
     <h1>Explore sports</h1>
     <div class="list_exercises" v-if="exercisesBase !== null">
       <div class="exercise" v-for="exercise in exercisesBase" :key="exercise">
@@ -10,26 +10,28 @@
         </router-link>
       </div>
     </div>
-    <BackButton />
+    <BackButton v-if="!isPending" />
   </div>
+  <LoadingAnimation v-if="isPending" />
 </template>
 
 <script>
 import useListGroup from "@/composables/getListGroupExercises";
 import BackButton from "@/components/BackButton";
+import LoadingAnimation from "@/components/LoadingAnimation";
 export default {
   name: "ExercisesView",
-  components: { BackButton },
+  components: { BackButton, LoadingAnimation },
   setup() {
-    const { err, exercisesBase, getListGroupExercises } = useListGroup();
-
+    const { err, exercisesBase, getListGroupExercises, isPending } =
+      useListGroup();
     const getItems = async () => {
       await getListGroupExercises();
     };
 
     getItems();
 
-    return { err, exercisesBase, getListGroupExercises };
+    return { err, exercisesBase, getListGroupExercises, isPending };
   },
 };
 </script>
@@ -38,6 +40,7 @@ export default {
 h1 {
   text-align: center;
 }
+
 .list_exercises {
   display: flex;
   flex-wrap: wrap;
@@ -61,6 +64,7 @@ h1 {
 .exercise:hover {
   background-color: var(--blue);
 }
+
 p {
   display: flex;
   align-items: center;

@@ -34,7 +34,9 @@
             common is a daily routine. Here are some of the top routines in our
             community, what do you think is most important?
           </p>
-          <button>Checkout</button>
+          <router-link :to="{ name: 'routines' }">
+            <button>Checkout</button>
+          </router-link>
         </div>
       </div>
     </div>

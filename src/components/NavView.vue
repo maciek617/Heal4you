@@ -9,8 +9,8 @@
       <div v-if="!user">
         <router-link to="/login">Login</router-link>
         <router-link :to="{ name: 'signup' }" class="sign_btn"
-          >Signup</router-link
-        >
+          >Signup
+        </router-link>
       </div>
       <div v-else>
         <button class="blog">Blog</button>
@@ -76,12 +76,14 @@ nav a.router-link-active {
 .blog {
   margin-right: 14px;
 }
+
 .sign_btn {
   background-color: var(--btn);
   padding: 4px 10px;
   border-radius: 8px;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
 }
+
 .logo {
   cursor: pointer;
   display: flex;
@@ -96,6 +98,7 @@ nav a.router-link-active {
   .container {
     padding: 10px 80px;
   }
+
   nav a {
     margin: 5px 20px;
   }

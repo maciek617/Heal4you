@@ -72,6 +72,14 @@ const routes = [
     },
   },
   {
+    path: "/heal4you/daily-routines",
+    name: "routines",
+    component: () => import("../views/RoutinesView"),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
     path: "/heal4you/bmi",
     name: "bmi",
     component: () => import("../views/BmiView"),

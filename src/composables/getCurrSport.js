@@ -20,12 +20,3 @@ const useCurrSport = () => {
 };
 
 export default useCurrSport;
-
-//
-// const getCurrSport = async () => {
-//   const res = await fetch(
-//     `https://sports.api.decathlon.com/sports/${props.id}`
-//   );
-//   const data = await res.json();
-//   currSport.value = data.data.attributes.name;
-// };

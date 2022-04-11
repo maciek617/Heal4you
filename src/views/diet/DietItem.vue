@@ -6,6 +6,7 @@
     <p>Author: {{ user.displayName }}</p>
     <p>Created at: {{ correctDisplayDate }}</p>
   </div>
+  <LoadingAnimation v-if="isPending" />
 </template>
 
 <script>
@@ -14,11 +15,13 @@ import { useRoute, useRouter } from "vue-router";
 import { ref } from "@vue/reactivity";
 import getUser from "@/composables/getUser";
 import { computed } from "vue";
+import LoadingAnimation from "@/components/LoadingAnimation";
 export default {
   name: "DietItem",
+  components: { LoadingAnimation },
   setup() {
     const { user } = getUser();
-    const { getDocument } = useGetDocument();
+    const { getDocument, isPending } = useGetDocument();
     const route = useRoute();
     const router = useRouter();
     const data = ref(null);
@@ -36,7 +39,7 @@ export default {
 
     const goBack = () => router.go(-1);
 
-    return { data, user, goBack, correctDisplayDate };
+    return { data, user, goBack, correctDisplayDate, isPending };
   },
 };
 </script>

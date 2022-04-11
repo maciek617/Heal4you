@@ -1,6 +1,6 @@
-import { ref } from 'vue';
-import { auth } from '../firebase/config';
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { ref } from "vue";
+import { auth } from "@/firebase/config";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 const error = ref(null);
 const isPending = ref(false);
@@ -16,7 +16,7 @@ const signup = async (email, password, displayName) => {
     });
 
     if (!res && !update) {
-      throw new Error('Could not finish. Try again!');
+      throw new Error("Could not finish. Try again!");
     }
 
     isPending.value = false;
@@ -24,7 +24,7 @@ const signup = async (email, password, displayName) => {
   } catch (e) {
     const err = e.code.slice(5);
     error.value =
-      err.charAt(0).toUpperCase() + err.slice(1).replaceAll('-', ' ');
+      err.charAt(0).toUpperCase() + err.slice(1).replaceAll("-", " ");
     isPending.value = false;
   }
 };

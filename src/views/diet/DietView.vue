@@ -26,15 +26,15 @@
       <ModalView :isOpen="open" @closeModal="resetStyles" />
     </Teleport>
   </div>
-  <div v-if="isPending">Loading...</div>
+  <LoadingAnimation v-if="isPending" />
 </template>
 <script>
 import { ref } from "vue";
 import ModalView from "@/components/ModalView.vue";
 import getCollection from "@/composables/setData";
-
+import LoadingAnimation from "@/components/LoadingAnimation";
 export default {
-  components: { ModalView },
+  components: { ModalView, LoadingAnimation },
   setup() {
     const { documents, isPending } = getCollection("diet");
     const open = ref(false);

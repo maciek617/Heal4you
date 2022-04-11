@@ -4,9 +4,7 @@
       <CurrentExercise :id="ex.id" />
     </div>
   </div>
-  <div v-if="isPending">
-    <h1>Loading...</h1>
-  </div>
+  <LoadingAnimation v-if="isPending" />
   <BackButton />
 </template>
 
@@ -15,10 +13,11 @@ import { useRoute, useRouter } from "vue-router";
 import CurrentExercise from "@/components/CurrentExercise";
 import { ref } from "@vue/reactivity";
 import BackButton from "@/components/BackButton";
+import LoadingAnimation from "@/components/LoadingAnimation";
 
 export default {
   name: "ExercisesItem",
-  components: { CurrentExercise, BackButton },
+  components: { CurrentExercise, BackButton, LoadingAnimation },
   setup() {
     const route = useRoute();
     const router = useRouter();
