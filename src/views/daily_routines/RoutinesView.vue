@@ -1,9 +1,9 @@
 <template>
   <div class="routines_wrapper">
-    <h4>
+    <h3>
       Want to be a programmer? doctor? maybe lawyer? Discover daily routines and
       become the greatest!
-    </h4>
+    </h3>
     <div class="routines_list">
       <div
         class="routine_category"
@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style scoped>
-h4 {
+h3 {
   text-align: center;
   padding: 10px;
 }
@@ -53,6 +53,7 @@ h4 {
 }
 
 p {
+  padding: 8px;
   margin: 8px;
   cursor: pointer;
 }

@@ -7,13 +7,21 @@
         placeholder="Display name"
         required
         v-model="displayName"
+        autocomplete="name"
       />
-      <input type="email" placeholder="E-mail" required v-model="email" />
+      <input
+        type="email"
+        placeholder="E-mail"
+        required
+        v-model="email"
+        autocomplete="email"
+      />
       <input
         type="password"
         placeholder="Password"
         required
         v-model="password"
+        autocomplete="new-password"
       />
       <div class="error" v-if="error">
         <p>{{ error }}</p>

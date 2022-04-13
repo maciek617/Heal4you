@@ -2,12 +2,19 @@
   <div class="log_wrapper">
     <h1>Login Page</h1>
     <form @submit.prevent="handleSubmit">
-      <input type="email" placeholder="E-mail" required v-model="email" />
+      <input
+        type="email"
+        placeholder="E-mail"
+        required
+        v-model="email"
+        autocomplete="email"
+      />
       <input
         type="password"
         placeholder="Password"
         required
         v-model="password"
+        autocomplete="current-password"
       />
       <div class="error" v-if="error">
         <p>{{ error }}</p>
