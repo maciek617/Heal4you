@@ -23,9 +23,11 @@
 <script>
 import { ref } from "vue";
 import useSet from "@/composables/setCollectionData";
+import getUser from "@/composables/getUser";
 export default {
   props: ["isOpen"],
   setup(props, ctx) {
+    const { user } = getUser();
     const { setData } = useSet();
     const title = ref("");
     const description = ref("");
@@ -33,7 +35,12 @@ export default {
 
     const addData = async () => {
       if (title.value.trim() !== "" && description.value.trim() !== "") {
-        await setData(title.value, description.value);
+        await setData(
+          title.value,
+          description.value,
+          user.value.displayName,
+          user.value.photoURL
+        );
         title.value = "";
         description.value = "";
         document.body.classList.remove("modal_active");
