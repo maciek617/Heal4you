@@ -14,9 +14,9 @@
           </router-link>
         </div>
         <img
-          :src="require('../assets/health_8.svg')"
-          alt="healthy diet image"
-          loading="lazy"
+            :src="require('../assets/health_8.svg')"
+            alt="healthy diet image"
+            loading="lazy"
         />
       </div>
     </div>
@@ -24,9 +24,9 @@
       <h1>Daily routines</h1>
       <div class="second_layout">
         <img
-          :src="require('../assets/health_5.svg')"
-          alt="tooth brush image"
-          loading="lazy"
+            :src="require('../assets/health_5.svg')"
+            alt="tooth brush image"
+            loading="lazy"
         />
         <div class="layout_info">
           <p>
@@ -41,7 +41,7 @@
       </div>
     </div>
     <div class="info_box first">
-      <h1>Home exercises</h1>
+      <h1>Discover Sports!</h1>
       <div class="first_layout">
         <div class="layout_info">
           <p>
@@ -54,25 +54,24 @@
           </router-link>
         </div>
         <img
-          :src="require('../assets/health_1.svg')"
-          alt="running man image"
-          loading="lazy"
+            :src="require('../assets/health_1.svg')"
+            alt="running man image"
+            loading="lazy"
         />
       </div>
     </div>
     <div class="info_box second">
-      <h1>Doctors visit</h1>
+      <h1>Calculate your BMI</h1>
       <div class="second_layout">
         <img
-          :src="require('../assets/health_9.svg')"
-          alt="doctor visit image"
-          loading="lazy"
+            :src="require('../assets/health_9.svg')"
+            alt="doctor visit image"
+            loading="lazy"
         />
         <div class="layout_info">
           <p>
-            Doctors don't just heal us with amazing skills and knowledge.
-            Doctors are also the first ones to break stigma! We appreciate the
-            new allies we have because of you!
+            When it comes to the body mass index, there’s no need to be defined by a number.
+            What matters most is that you’re thriving and healthy. #BMI
           </p>
           <router-link :to="{ name: 'bmi' }">
             <button>Checkout</button>
@@ -159,6 +158,7 @@ export default {};
   .layout_info {
     align-items: flex-start;
   }
+
   .info_box p {
     text-align: left;
   }

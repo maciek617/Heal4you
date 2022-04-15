@@ -1,22 +1,24 @@
 <template>
   <div class="log_wrapper">
+    <GoogleAuth/>
+    <p>or</p>
     <h1>Login Page</h1>
     <form @submit.prevent="handleSubmit">
       <input
-        type="email"
-        placeholder="E-mail"
-        required
-        v-model="email"
-        autocomplete="email"
+          v-model="email"
+          autocomplete="email"
+          placeholder="E-mail"
+          required
+          type="email"
       />
       <input
-        type="password"
-        placeholder="Password"
-        required
-        v-model="password"
-        autocomplete="current-password"
+          v-model="password"
+          autocomplete="current-password"
+          placeholder="Password"
+          required
+          type="password"
       />
-      <div class="error" v-if="error">
+      <div v-if="error" class="error">
         <p>{{ error }}</p>
       </div>
       <button v-if="!isPending">Login</button>
@@ -26,51 +28,32 @@
       <p class="_info">
         You dont have an account yet?
         <router-link :to="{ name: 'signup' }" class="login_btn"
-          >Signup!
+        >Signup!
         </router-link>
       </p>
     </div>
   </div>
 </template>
 <script>
-import { ref } from "@vue/reactivity";
+import {ref} from "@vue/reactivity";
 import useLogin from "../../composables/useLogin";
-import { useRouter } from "vue-router";
+import {useRouter} from "vue-router";
+import GoogleAuth from "@/components/GoogleAuth";
 
 export default {
+  components: {GoogleAuth},
   setup() {
-    const { error, isPending, login } = useLogin();
+    const {error, isPending, login} = useLogin();
     const router = useRouter();
     const email = ref("");
     const password = ref("");
 
     const handleSubmit = async () => {
       await login(email.value, password.value);
-      !error.value ? await router.push({ name: "heal4you" }) : null;
+      !error.value ? await router.push({name: "heal4you"}) : null;
     };
 
-    return { email, password, isPending, handleSubmit, error };
+    return {email, password, isPending, handleSubmit, error};
   },
 };
 </script>
-<style>
-.log_wrapper {
-  flex-direction: column;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 90vh;
-}
-form {
-  margin-top: 20px;
-}
-
-._info {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.login_btn {
-  color: var(--blue);
-}
-</style>

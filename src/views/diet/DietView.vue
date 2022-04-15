@@ -1,12 +1,12 @@
 <template>
-  <div class="diet_wrapper" v-if="!isPending">
+  <div v-if="!isPending" class="diet_wrapper">
     <div class="create">
       <button @click="checkIfOpen">
         Create a new diet <i class="fa-solid fa-plus"></i>
       </button>
     </div>
-    <div class="dietList" v-if="documents != null">
-      <div class="diet" v-for="document in documents" :key="document.id">
+    <div v-if="documents != null" class="dietList">
+      <div v-for="document in documents" :key="document.id" class="diet">
         <h1 class="diet_title">{{ document.title }}</h1>
         <p class="diet_description">
           {{ document.desc.substring(0, 60) + "..." }}
@@ -16,27 +16,28 @@
         </router-link>
       </div>
     </div>
-    <div v-else class="no_diet">
+    <div v-if="documents == null" class="no_diet">
       <h1>
         Sorry, we haven't prepared diets yet. If you know any good diets that
         may help others. Click on "Create a new diet" and make it!
       </h1>
     </div>
     <Teleport to="body">
-      <ModalView :isOpen="open" @closeModal="resetStyles" />
+      <ModalView :isOpen="open" @closeModal="resetStyles"/>
     </Teleport>
   </div>
-  <LoadingAnimation v-if="isPending" />
+  <LoadingAnimation v-if="isPending"/>
 </template>
 <script>
-import { ref } from "vue";
+import {ref} from "vue";
 import ModalView from "@/components/ModalView.vue";
 import getCollection from "@/composables/setData";
 import LoadingAnimation from "@/components/LoadingAnimation";
+
 export default {
-  components: { ModalView, LoadingAnimation },
+  components: {ModalView, LoadingAnimation},
   setup() {
-    const { documents, isPending } = getCollection("diet");
+    const {documents, isPending} = getCollection("diet");
     const open = ref(false);
 
     const checkIfOpen = () => {
@@ -53,7 +54,9 @@ export default {
       document.body.classList.remove("modal_active");
     };
 
-    return { open, documents, checkIfOpen, resetStyles, isPending };
+
+    console.log(isPending.value)
+    return {open, documents, checkIfOpen, resetStyles, isPending};
   },
 };
 </script>
@@ -62,12 +65,14 @@ export default {
   margin-top: 10px;
   text-align: right;
 }
+
 .dietList {
   margin-top: 20px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
+
 .diet {
   margin: 14px 8px;
   min-height: 180px;
@@ -94,6 +99,7 @@ export default {
   margin: 30px auto 0;
   cursor: pointer;
 }
+
 .no_diet {
   margin-top: 100px;
   text-align: center;

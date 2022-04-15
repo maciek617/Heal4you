@@ -1,81 +1,103 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600;800;900&display=swap');
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Variables  */
 :root {
-  --primary: #ffece4;
-  --btn: #ff9e9f;
-  --blue: #0fbdff;
-  --creme: #ffbbbe;
-  --warning: crimson;
+    --primary: #ffece4;
+    --btn: #ff9e9f;
+    --blue: #0fbdff;
+    --creme: #ffbbbe;
+    --warning: crimson;
 }
 
 button {
-  background: var(--btn);
-  border-radius: 8px;
-  border: 0;
-  padding: 8px 12px;
-  font-weight: 600;
-  cursor: pointer;
-  display: inline-block;
+    background: var(--btn);
+    border-radius: 8px;
+    border: 0;
+    padding: 8px 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-block;
 }
 
 a {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
 
 form {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 30px;
-  border-radius: 8px;
-  border: 1px solid var(--btn);
-  background: transparent;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--btn);
+    background: transparent;
 }
+
 input,
 textarea {
-  max-height: 300px;
-  min-width: 280px;
-  max-width: 95%;
-  border: 0;
-  border-bottom: 1px solid var(--btn);
-  padding: 10px;
-  outline: none;
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
-  margin: 20px auto;
-  background-color: transparent;
+    max-height: 300px;
+    min-width: 280px;
+    max-width: 95%;
+    border: 0;
+    border-bottom: 1px solid var(--btn);
+    padding: 10px;
+    outline: none;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 20px auto;
+    background-color: transparent;
 }
 
 .error {
-  margin: 10px;
-  color: var(--warning);
-  text-align: center;
+    margin: 10px;
+    color: var(--warning);
+    text-align: center;
+}
+
+.log_wrapper {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+}
+
+form {
+    margin-top: 20px;
+}
+
+._info {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.login_btn {
+    color: var(--blue);
 }
 
 /*Animations*/
 @keyframes bounce {
-  0%{
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(6px);
-  }
-  60% {
-      transform: translateY(0px);
+    0% {
+        transform: translateY(0);
     }
-  80% {
-    transform: translateY(4px);
-  }
-  100% {
-    transform: translateY(0);
-  }
+    50% {
+        transform: translateY(6px);
+    }
+    60% {
+        transform: translateY(0px);
+    }
+    80% {
+        transform: translateY(4px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }

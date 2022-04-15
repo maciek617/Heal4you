@@ -1,32 +1,33 @@
 <template>
-  <div class="dietItem_wrapper" v-if="data != null">
+  <div v-if="data != null" class="dietItem_wrapper">
     <h1>{{ data.title }}</h1>
     <p>{{ data.desc }}</p>
-    <button @click="goBack">Back</button>
     <div class="author_data">
       <p>Author: {{ data.author }}</p>
-      <img :src="data.author_img" alt="user photo" />
+      <img :src="data.author_img" alt="user photo"/>
     </div>
     <p>Created at: {{ correctDisplayDate }}</p>
   </div>
-  <LoadingAnimation v-if="isPending" />
+  <LoadingAnimation v-if="isPending"/>
+  <BackButton/>
 </template>
 
 <script>
 import useGetDocument from "@/composables/getData";
-import { useRoute, useRouter } from "vue-router";
-import { ref } from "@vue/reactivity";
+import {useRoute} from "vue-router";
+import {ref} from "@vue/reactivity";
 import getUser from "@/composables/getUser";
-import { computed } from "vue";
+import {computed} from "vue";
 import LoadingAnimation from "@/components/LoadingAnimation";
+import BackButton from "@/components/BackButton";
+
 export default {
   name: "DietItem",
-  components: { LoadingAnimation },
+  components: {LoadingAnimation, BackButton},
   setup() {
-    const { user } = getUser();
-    const { getDocument, isPending } = useGetDocument();
+    const {user} = getUser();
+    const {getDocument, isPending} = useGetDocument();
     const route = useRoute();
-    const router = useRouter();
     const data = ref(null);
 
     const handleShowItem = async () => {
@@ -40,9 +41,7 @@ export default {
       return new Date(data.value.createdAt).toLocaleString();
     });
 
-    const goBack = () => router.go(-1);
-
-    return { data, user, goBack, correctDisplayDate, isPending };
+    return {data, user, correctDisplayDate, isPending};
   },
 };
 </script>
@@ -51,10 +50,12 @@ export default {
 h1 {
   padding: 14px 8px;
 }
+
 p {
   padding: 8px;
   text-align: justify;
 }
+
 button {
   margin: 10px;
 }
@@ -62,6 +63,7 @@ button {
 .author_data {
   display: flex;
 }
+
 .author_data img {
   width: 35px;
   height: 35px;
