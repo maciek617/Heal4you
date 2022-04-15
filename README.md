@@ -11,7 +11,7 @@ and profile changes. I used a bunch of API's like: discover sports from DECATHLO
 
 # Check it live:
 
-https://heal4you.netlify.app/
+https://heal4you-83c0e.web.app/
 
 ## Project setup
 
