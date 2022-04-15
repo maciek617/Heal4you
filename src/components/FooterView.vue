@@ -1,5 +1,5 @@
 <template>
-  <p>All rights reserved &copy; 2023 - Maciej Gosztyła</p>
+  <p>All rights reserved &copy; 2022 - Maciej Gosztyła</p>
 </template>
 
 <style scoped>
