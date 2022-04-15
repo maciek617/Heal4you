@@ -32,7 +32,7 @@ const routes = [
     },
   },
   {
-    path: "/heal4you/diet",
+    path: "/diet",
     name: "diet",
     component: () => import("../views/diet/DietView.vue"),
     meta: {
@@ -40,7 +40,7 @@ const routes = [
     },
   },
   {
-    path: "/heal4you/diet/:id",
+    path: "/diet/:id",
     name: "dietItem",
     component: () => import("../views/diet/DietItem.vue"),
     meta: {
@@ -48,7 +48,7 @@ const routes = [
     },
   },
   {
-    path: "/heal4you/sports",
+    path: "/sports",
     name: "exercises",
     component: () => import("../views/exercises/ExercisesView"),
     meta: {
@@ -56,7 +56,7 @@ const routes = [
     },
   },
   {
-    path: "/heal4you/sports-group/:id",
+    path: "/sports-group/:id",
     name: "exercises_detail",
     component: () => import("../views/exercises/ExercisesItem"),
     meta: {
@@ -64,7 +64,15 @@ const routes = [
     },
   },
   {
-    path: "/heal4you/sport/:id",
+    path: "/profile/:id",
+    name: "profile",
+    component: () => import("../views/ProfileView"),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: "/sport/:id",
     name: "sport",
     component: () => import("../components/CurrentSportDetail"),
     meta: {
@@ -72,9 +80,9 @@ const routes = [
     },
   },
   {
-    path: "/heal4you/daily-routines",
+    path: "/daily-routines",
     name: "routines",
-    component: () => import("../views/RoutinesView"),
+    component: () => import("../views/daily_routines/RoutinesView"),
     meta: {
       requiresAuth: true,
     },

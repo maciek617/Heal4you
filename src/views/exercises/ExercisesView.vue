@@ -57,6 +57,8 @@ h1 {
   margin: 20px;
   text-align: center;
   cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
   background-color: var(--btn);
   transition: background-color 0.3s;
 }

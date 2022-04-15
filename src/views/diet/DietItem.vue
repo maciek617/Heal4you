@@ -3,7 +3,10 @@
     <h1>{{ data.title }}</h1>
     <p>{{ data.desc }}</p>
     <button @click="goBack">Back</button>
-    <p>Author: {{ user.displayName }}</p>
+    <div class="author_data">
+      <p>Author: {{ data.author }}</p>
+      <img :src="data.author_img" alt="user photo" />
+    </div>
     <p>Created at: {{ correctDisplayDate }}</p>
   </div>
   <LoadingAnimation v-if="isPending" />
@@ -54,5 +57,14 @@ p {
 }
 button {
   margin: 10px;
+}
+
+.author_data {
+  display: flex;
+}
+.author_data img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
 }
 </style>

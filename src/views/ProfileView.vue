@@ -42,7 +42,7 @@
           <form @submit.prevent="checkForProfileChanges">
             <input type="text" placeholder="photo url" v-model="photo_url" />
             <button>Save</button>
-            <button @click="show = false">Cancel</button>
+            <button @click="cancelAddingImage">Cancel</button>
           </form>
         </div>
       </div>
@@ -100,6 +100,10 @@ export default {
       });
       document.location.reload();
     };
+    const cancelAddingImage = () => {
+      show.value = false;
+      photo_url.value = "";
+    };
 
     return {
       user,
@@ -110,6 +114,7 @@ export default {
       show,
       photo_url,
       removeImage,
+      cancelAddingImage
     };
   },
 };
@@ -164,6 +169,7 @@ export default {
   border: 1px solid var(--btn);
   z-index: 999;
   background-color: rgba(0, 0, 0, 0.4);
+  max-width: 400px;
 }
 
 .change_photo p {

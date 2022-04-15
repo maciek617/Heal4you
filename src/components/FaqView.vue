@@ -32,13 +32,13 @@ export default {
   setup() {
     const faqBase = ref([
       {
-        q: "Who we are?",
-        a: "We are a passionate about programming and healthy life style. Use our resources to change your life.",
+        q: "Who I am?",
+        a: "I am 17 years old. Frontend passionate about programming especially web development. In this project I want to introduce you to healthy lifestyle.",
         open: false,
       },
       {
-        q: "What we do?",
-        a: "We provide a healthy resources for everyone. Starting with diet and ending at exercises that you can make in home.",
+        q: "What I do?",
+        a: "I do a lot of projects with Vue <3. Stay tuned in my github to future projects.",
         open: false,
       },
       {
@@ -47,13 +47,13 @@ export default {
         open: false,
       },
       {
-        q: "Is Heal4You a open source project?",
-        a: "Yes, it is a open source project. You can check github repo anytime you want to.",
+        q: "Can I see source code?",
+        a: "Yes, you can check github repo anytime you want to.",
         open: false,
       },
       {
-        q: "Can I donate",
-        a: "We haven't provide donations yet. So stay tuned maybe in future we would enable it.",
+        q: "Can I donate?",
+        a: "Nah, the best donate for me is to give me some feedback about code or functionality.",
         open: false,
       },
     ]);

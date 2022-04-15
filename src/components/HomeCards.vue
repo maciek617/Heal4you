@@ -15,28 +15,28 @@ export default {
   setup() {
     const cardsBase = ref([
       {
-        title: "Integrated",
-        desc: "Our application is integrated with Firebase, so you can save a lot of information.",
+        title: "Health",
+        desc: "Heal4You was created to help people find health path and discover themselves.",
       },
       {
-        title: "100+ diets",
-        desc: "You can find more than 100 diets prepared by doctors and the others.",
+        title: "Diets",
+        desc: "On Heal4You you can find a lot of diets prepared by others.",
       },
       {
-        title: "100+ active users",
-        desc: "You can join to over 100 users around the world and start changing your life.",
+        title: "Active users",
+        desc: "Join to Heal4You army and change your life.",
       },
       {
-        title: "+10 health services",
-        desc: "There you can find a lot of services like: exercises, diets, daily routines etc.",
+        title: "Sports",
+        desc: "There you can discover sports around the world.",
       },
       {
-        title: "Patient safety",
-        desc: "We guarantee the security, so don't worry about that.",
+        title: "Safety",
+        desc: "I guarantee the security, so don't worry about that.",
       },
       {
         title: "Fun",
-        desc: "Make you life easier and healthier by entertainment.",
+        desc: "Moving around the app can brings a lot of fun, don't trust me? Check it!.",
       },
     ]);
 

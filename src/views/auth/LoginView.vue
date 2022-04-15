@@ -54,6 +54,13 @@ export default {
 };
 </script>
 <style>
+.log_wrapper {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
 form {
   margin-top: 20px;
 }
