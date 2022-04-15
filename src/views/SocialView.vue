@@ -1,12 +1,11 @@
 <template>
   <div class="social_wrapper">
-    <h1>Find us on social media</h1>
+    <h1>Find me on social media</h1>
     <div class="icon_box">
-      <i class="fa-brands fa-facebook"></i>
-      <i class="fa-brands fa-twitter"></i>
-      <i class="fa-brands fa-instagram"></i>
-      <i class="fa-brands fa-github"></i>
-      <i class="fa-brands fa-youtube"></i>
+      <a href="https://www.instagram.com/mck1337/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://github.com/maciek617" target="_blank"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.youtube.com/channel/UC1FuwnXUpg77Mb7butgJJXQ" target="_blank"><i
+          class="fa-brands fa-youtube"></i></a>
     </div>
   </div>
 </template>

@@ -81,9 +81,6 @@
     </div>
   </div>
 </template>
-<script>
-export default {};
-</script>
 <style>
 .app_container {
   max-width: 1600px;

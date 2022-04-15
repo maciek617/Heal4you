@@ -55,7 +55,6 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
 }
 
 p {
@@ -69,7 +68,7 @@ p {
 }
 
 .routine_category {
-  width: 300px;
+  width: 500px;
   height: 100px;
   margin: 20px auto;
   border: 1px solid var(--blue);

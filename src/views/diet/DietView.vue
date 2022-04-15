@@ -54,8 +54,6 @@ export default {
       document.body.classList.remove("modal_active");
     };
 
-
-    console.log(isPending.value)
     return {open, documents, checkIfOpen, resetStyles, isPending};
   },
 };

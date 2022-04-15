@@ -16,7 +16,6 @@
 import useGetDocument from "@/composables/getData";
 import {useRoute} from "vue-router";
 import {ref} from "@vue/reactivity";
-import getUser from "@/composables/getUser";
 import {computed} from "vue";
 import LoadingAnimation from "@/components/LoadingAnimation";
 import BackButton from "@/components/BackButton";
@@ -25,7 +24,6 @@ export default {
   name: "DietItem",
   components: {LoadingAnimation, BackButton},
   setup() {
-    const {user} = getUser();
     const {getDocument, isPending} = useGetDocument();
     const route = useRoute();
     const data = ref(null);
@@ -41,7 +39,7 @@ export default {
       return new Date(data.value.createdAt).toLocaleString();
     });
 
-    return {data, user, correctDisplayDate, isPending};
+    return {data, correctDisplayDate, isPending};
   },
 };
 </script>

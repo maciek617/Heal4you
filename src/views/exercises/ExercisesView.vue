@@ -1,37 +1,38 @@
 <template>
-  <div class="exercises_wrapper" v-if="!isPending">
+  <div v-if="!isPending" class="exercises_wrapper">
     <h1>Explore sports</h1>
-    <div class="list_exercises" v-if="exercisesBase !== null">
-      <div class="exercise" v-for="exercise in exercisesBase" :key="exercise">
+    <div v-if="exercisesBase !== null" class="list_exercises">
+      <div v-for="exercise in exercisesBase" :key="exercise" class="exercise">
         <router-link
-          :to="{ name: 'exercises_detail', params: { id: exercise.id } }"
+            :to="{ name: 'exercises_detail', params: { id: exercise.id } }"
         >
           <p>{{ exercise.attributes.name }}</p>
         </router-link>
       </div>
     </div>
-    <BackButton v-if="!isPending" />
+    <BackButton v-if="!isPending"/>
   </div>
-  <LoadingAnimation v-if="isPending" />
+  <LoadingAnimation v-if="isPending"/>
 </template>
 
 <script>
 import useListGroup from "@/composables/getListGroupExercises";
 import BackButton from "@/components/BackButton";
 import LoadingAnimation from "@/components/LoadingAnimation";
+
 export default {
   name: "ExercisesView",
-  components: { BackButton, LoadingAnimation },
+  components: {BackButton, LoadingAnimation},
   setup() {
-    const { err, exercisesBase, getListGroupExercises, isPending } =
-      useListGroup();
+    const {exercisesBase, getListGroupExercises, isPending} =
+        useListGroup();
     const getItems = async () => {
       await getListGroupExercises();
     };
 
     getItems();
 
-    return { err, exercisesBase, getListGroupExercises, isPending };
+    return {exercisesBase, getListGroupExercises, isPending};
   },
 };
 </script>
