@@ -6,20 +6,22 @@
     </h3>
     <div class="routines_list">
       <div
-        class="routine_category"
-        v-for="(routine, i) in routinesBase"
-        :key="i"
+          v-for="routine in routinesBase"
+          :key="routine"
+          class="routine_category"
       >
-        <p>
-          {{ i + 1 }}. <span>{{ routine }}</span>
-        </p>
+        <router-link :to="{name: 'routine', params: {slug: routine.toLowerCase().replaceAll(' ', '-')}}">
+          <p>
+            <span>{{ routine.toUpperCase() }}</span>
+          </p>
+        </router-link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { ref } from "@vue/reactivity";
+import {ref} from "@vue/reactivity";
 
 export default {
   name: "RoutinesView",
@@ -37,7 +39,7 @@ export default {
       "Financial analyst",
     ]);
 
-    return { routinesBase };
+    return {routinesBase};
   },
 };
 </script>
@@ -50,11 +52,27 @@ h3 {
 
 .routines_list {
   margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 p {
   padding: 8px;
-  margin: 8px;
   cursor: pointer;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.routine_category {
+  width: 300px;
+  height: 100px;
+  margin: 20px auto;
+  border: 1px solid var(--blue);
+  box-shadow: 1px 0px 1px rgba(0, 0, 0, .2);
 }
 </style>

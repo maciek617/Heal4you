@@ -88,6 +88,14 @@ const routes = [
     },
   },
   {
+    path: "/daily-routines/:slug",
+    name: "routine",
+    component: () => import("../views/daily_routines/RoutineDetail"),
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
     path: "/heal4you/bmi",
     name: "bmi",
     component: () => import("../views/BmiView"),
