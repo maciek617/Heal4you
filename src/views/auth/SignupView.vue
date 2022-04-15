@@ -77,4 +77,7 @@ form {
   margin-top: 20px;
   text-align: center;
 }
+.login_btn {
+  color: var(--blue);
+}
 </style>
